@@ -2,45 +2,28 @@
 	width: 100%;
 	height: 100%;
 	background-color: #e74c3c;
-	text-align: center;
-}
-.container:before {
-	content: '';
-	display: inline-block;
-	height: 100%;
-	vertical-align: middle;
-	margin-right: -0.25em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .circle {
-	display: inline-block;
-	vertical-align: middle;
 	border-radius: 300px;
-	box-sizing: border-box;
 	overflow: hidden;
 	height: 300px;
 	width: 300px;
 	background-color: #fff;
-	position: relative;
-}
-.circle:before {
-	content: '';
-	display: inline-block;
-	height: 100%;
-	vertical-align: middle;
-	margin-right: -0.25em;
-	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .mail-box {
-	display: inline-block;
-	vertical-align: middle;
+	position: relative;
 	border-radius: 25px 25px 0 0;
 	width: 150px;
 	height: 75px;
 	background-color: #3498db;
-	margin: 0 auto;
-	position: relative;
 
 	transition: transform 0.3s ease;
 	&:hover {
@@ -48,72 +31,52 @@
 		transform: scale(1.1);
 	}
 }
-.mail-box:before,
-.mail-box:after {
-	content: '';
-	display: block;
-	position: absolute;
-}
-.mail-box:before {
-	border-radius: 25px 25px 0 0;
-	background-color: #9fc9f0;
-	width: 50px;
-	left: 0;
-	height: 100%;
-}
-.mail-box:after {
+
+.box-pole {
 	width: 8px;
 	height: 200%;
 	left: 50%;
 	bottom: -200%;
-	margin-left: -4px;
+	transform: translateX(50%);
 	background-color: #12467e;
-}
-
-.flag {
-	transform-origin: 50% 100%;
-	width: 8px;
-	height: 100%;
-	margin: -25% auto 0 auto;
-	background-color: #e74c3c;
-	position: relative;
-}
-.flag:before,
-.flag:after {
-	content: '';
-	display: block;
 	position: absolute;
 }
-.flag:before {
-	background-color: inherit;
-	width: 32px;
-	left: 0;
-	top: 0;
-	height: 16px;
-}
-.flag:after {
-	border-radius: 24px;
-	box-sizing: border-box;
-	background-color: #9fc9f0;
-	border: 8px solid #e74c3c;
-	width: 24px;
-	height: 24px;
-	left: 50%;
-	margin-left: -12px;
-	bottom: -12px;
+
+.box-inside {
+	position: absolute;
+	border-radius: 25px 25px 0 0;
+	width: 40%;
+	height: 100%;
+	background-color: #2980b9;
 }
 
-/* Animations */
+.box-flap {
+	position: absolute;
+	border-radius: 25px 25px 0 0;
+	width: 40%;
+	height: 100%;
+	background-color: #9ccded;
+	z-index: 2;
 
-@-webkit-keyframes mailBoxUp {
-	from {
-		opacity: 0;
-		transform: translate3d(0, 90px, 0);
-	}
-	to {
-		opacity: 1;
-		transform: translate3d(0, 0, 0);
-	}
+	transition: transform 0.5s linear;
+	transform-origin: bottom center;
+}
+
+.mail-box:hover .box-flap {
+	transform: rotateX(120deg);
+}
+
+.mail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #b3ff9f;
+    border-radius: 5px;
+    height: 40px;
+    width: 60px;
+    z-index: 7;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes mailBoxUp {
@@ -127,35 +90,6 @@
 	}
 }
 
-@-webkit-keyframes flagSpin {
-	from {
-		opacity: 0;
-		transform: rotate(-90deg);
-	}
-	to {
-		opacity: 1;
-		transform: rotate(0);
-	}
-}
-
-@keyframes flagSpin {
-	from {
-		opacity: 0;
-		transform: rotate(-90deg);
-	}
-	to {
-		opacity: 1;
-		transform: rotate(0);
-	}
-}
-
 .mail-box {
 	animation: mailBoxUp 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-	-webkit-animation: mailBoxUp 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.flag {
-	backface-visibility: hidden;
-	animation: flagSpin 500ms 250ms backwards cubic-bezier(0.68, -0.55, 0.265, 1.55);
-	-webkit-animation: flagSpin 500ms 250ms backwards cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }

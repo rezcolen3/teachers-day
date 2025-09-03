@@ -9,6 +9,6 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="w-screen h-screen flex items-center justify-center">
+<div style="height: 100vh;">
 	{@render children?.()}
 </div>
