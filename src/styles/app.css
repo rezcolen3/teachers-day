@@ -1,2 +1,5 @@
-@import 'tailwindcss';
-@import "./mailbox.css";
+@import './mailbox.css';
+
+:root {
+	background-color: #e74c3c;
+}
