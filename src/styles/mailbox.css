@@ -41,6 +41,17 @@
 	transition: all 0.5s ease;
 }
 
+.outside-fully-out {
+	position: relative;
+	border-radius: 25px 25px 0 0;
+	width: 150px;
+	height: 75px;
+	background-color: #3498db;
+
+	transform: translateX(225px) translateY(300px);
+	transition: all 0.5s ease;
+}
+
 .box-pole {
 	width: 8px;
 	height: 200%;
@@ -98,14 +109,10 @@
 	background-color: #b3ff9f;
 	border-radius: 5px;
 	flex: 1;
-
-	display: flex;
-	gap: 2px;
-	justify-content: space-between;
-	padding: 10px;
 	font-size: 16px;
-	height: fit-content;
 	transition: all 0.5s ease;
+
+	z-index: 4;
 
 	&:hover {
 		cursor: pointer;
@@ -120,6 +127,7 @@
 	flex-direction: column;
 	text-align: left;
 	height: fit-content;
+	margin: 10px;
 }
 
 .to {
@@ -129,24 +137,43 @@
 	flex-direction: column;
 	text-align: right;
 	height: fit-content;
+	margin: 10px;
 }
 
 .toorfrom {
 	font-size: 28px;
 }
 
+.mail-wraper {
+	background-color: #b3ff9f;
+	display: flex;
+	justify-content: space-between;
+	z-index: 5;
+	position: absolute;
+	height: 100%;
+	align-items: center;
+}
+
 .letter {
-	position: fixed;
+	position: absolute;
 	width: 140px;
 	height: 250px;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -45%);
+	transform: translate(-50%, -50%) scale(0);
 	background-color: #91fbff;
+	z-index: 3;
+	transition: all 0.5s ease;
+}
 
-	transform-origin: center center;
-
-	transform: rotate(-90deg);
+.letter-fully-out {
+	position: fixed;
+	background-color: #91fbff;
+	width: 100vw;
+    height: 100%;
+	top: 0;
+    left: 0;
+	transition: all 0.5s ease;
 }
 
 @keyframes mailBoxUp {
