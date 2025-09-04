@@ -1,10 +1,9 @@
-// svelte.config.js
-import adapter from '@sveltejs/adapter-static';
+import vercel from '@sveltejs/adapter-vercel';
+import { vitePreprocess } from '@sveltejs/kit/vite';
 
 export default {
+	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter({
-			fallback: 'index.html' // single-page fallback
-		})
+		adapter: vercel()
 	}
 };
