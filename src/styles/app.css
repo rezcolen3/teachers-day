@@ -1,5 +1,7 @@
 @import './mailbox.css';
+@import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
 
 :root {
 	background-color: #e74c3c;
+	font-family: 'Story Script', sans-serif;
 }

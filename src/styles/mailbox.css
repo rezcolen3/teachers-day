@@ -11,7 +11,7 @@
 	border-radius: 300px;
 	overflow: hidden;
 	height: 300px;
-	width: 300px;
+	aspect-ratio: 1/1;
 	background-color: #fff;
 	display: flex;
 	justify-content: center;
@@ -24,12 +24,21 @@
 	width: 150px;
 	height: 75px;
 	background-color: #3498db;
-
-	transition: transform 0.3s ease;
+	transition: all 0.5s ease;
 	&:hover {
 		cursor: pointer;
 		transform: scale(1.1);
 	}
+}
+.outside {
+	position: relative;
+	border-radius: 25px 25px 0 0;
+	width: 150px;
+	height: 75px;
+	background-color: #3498db;
+
+	transform: translateX(225px);
+	transition: all 0.5s ease;
 }
 
 .box-pole {
@@ -57,7 +66,6 @@
 	height: 100%;
 	background-color: #9ccded;
 	z-index: 2;
-
 	transition: transform 0.5s linear;
 	transform-origin: bottom center;
 }
@@ -67,16 +75,78 @@
 }
 
 .mail {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #b3ff9f;
-    border-radius: 5px;
-    height: 40px;
-    width: 60px;
-    z-index: 7;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	width: 250px;
+	aspect-ratio: 16/9;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0.2);
+	transition: all 0.5s ease;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+}
+.in-box {
+	left: 20%;
+}
+.free {
+	transform: translate(-350px, -50%);
+}
+
+.mail-content {
+	background-color: #b3ff9f;
+	border-radius: 5px;
+	flex: 1;
+
+	display: flex;
+	gap: 2px;
+	justify-content: space-between;
+	padding: 10px;
+	font-size: 16px;
+	height: fit-content;
+	transition: all 0.5s ease;
+
+	&:hover {
+		cursor: pointer;
+		transform: rotate(-90deg);
+	}
+}
+
+.from {
+	width: 40%;
+	height: 20px;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	height: fit-content;
+}
+
+.to {
+	width: 50%;
+	height: 20px;
+	display: flex;
+	flex-direction: column;
+	text-align: right;
+	height: fit-content;
+}
+
+.toorfrom {
+	font-size: 28px;
+}
+
+.letter {
+	position: fixed;
+	width: 140px;
+	height: 250px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -45%);
+	background-color: #91fbff;
+
+	transform-origin: center center;
+
+	transform: rotate(-90deg);
 }
 
 @keyframes mailBoxUp {
