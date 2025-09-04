@@ -1,11 +1,10 @@
-import { mdsvex } from 'mdsvex';
+// svelte.config.js
 import adapter from '@sveltejs/adapter-static';
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-	kit: { adapter: adapter() },
-	preprocess: [mdsvex()],
-	extensions: ['.svelte', '.svx']
+export default {
+	kit: {
+		adapter: adapter({
+			fallback: 'index.html' // single-page fallback
+		})
+	}
 };
-
-export default config;
